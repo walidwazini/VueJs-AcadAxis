@@ -1,5 +1,9 @@
 # acad-axis
 
+# Branch Main : Cloud Firestore Database
+
+# Branch Second : Realtime Database
+
 ### Setup Tailwindcss
 
 1. Install tailwindcss, etc..

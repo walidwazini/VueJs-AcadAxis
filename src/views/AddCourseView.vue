@@ -4,13 +4,18 @@
       <h1 class="text-2xl font-bold sm:text-3xl">Add new Course</h1>
     </div>
 
-    <form action="" class="max-w-md mx-auto mt-8 mb-0 space-y-4">
+    <form
+      @submit.prevent="submitHandler"
+      action=""
+      class="max-w-md mx-auto mt-8 mb-0 space-y-4"
+    >
       <div>
         <label for="email" class="sr-only">Title</label>
 
         <div class="relative">
           <input
-            type="email"
+            type="text"
+            v-model="course.title"
             class="
               w-full
               p-4
@@ -20,7 +25,6 @@
               rounded-lg
               shadow-sm
             "
-            placeholder="Enter title"
           />
         </div>
       </div>
@@ -29,7 +33,8 @@
         <label for="password" class="sr-only">Description</label>
         <div class="relative">
           <input
-            type="password"
+            type="text"
+            v-model="course.description"
             class="
               w-full
               p-4
@@ -68,7 +73,38 @@
 </template>
 
 <script>
-export default {};
+import firebase from "../firebase";
+
+export default {
+  data() {
+    return {
+      db: firebase.collection("/courses"),
+      course: {
+        title: "",
+        description: "",
+      },
+    };
+  },
+  methods: {
+    submitHandler() {
+      const data = {
+        // title: this.$refs.title.value,
+        title: this.course.title,
+        descripiton: this.course.description,
+        // descripiton: this.$refs.description.value,
+      };
+      console.log(data);
+      this.db
+        .add(data)
+        .then(() => {
+          alert("Success!");
+          this.course.title = "";
+          this.course.description = "";
+        })
+        .catch((err) => console.log(err));
+    },
+  },
+};
 </script>
 
 <style>
