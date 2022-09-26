@@ -1,24 +1,22 @@
 # acad-axis
 
-## Project setup
+### Setup Tailwindcss
+
+1. Install tailwindcss, etc..
+   ` npm install tailwindcss@latest postcss@latest autoprefixer@latest`
+
+2. Generate configuration files
+   `npx tailwindcss init -p`
+
+3. Configure `tailwind.config.js`, paste the given code into it
+   `purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],`
+
+4. Create `./src/index.css/`
+
 ```
-npm install
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[How to use tailwind/css from]('https://www.educative.io/answers/how-to-use-the-form-plugin-in-tailwind-css')
