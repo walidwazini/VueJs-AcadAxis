@@ -4,19 +4,20 @@
     <router-link to="/about">About</router-link> -->
   <!-- </nav> -->
   <div class="bg-slate-700 min-h-screen w-full">
-    <NavBarVue />
+    <NavBar />
     <router-view />
   </div>
 </template>
 
 <script>
-import NavBarVue from "./components/NavBar.vue";
+// import NavBarVue from "./components/NavBar.vue";
+import NavBar from "./components/NavBar.vue";
 // import NavBar from "./components/NavBar.vue";
 
 export default {
   setup() {},
   name: "App",
-  components: { NavBarVue },
+  components: { NavBar },
 };
 </script>
 
