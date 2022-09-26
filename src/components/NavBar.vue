@@ -47,7 +47,7 @@
 
         <div class="flex items-center gap-4">
           <div class="sm:gap-4 sm:flex">
-            <a
+            <div
               class="
                 px-5
                 py-2.5
@@ -58,10 +58,9 @@
                 rounded-md
                 shadow
               "
-              href="/"
             >
-              Add New
-            </a>
+              <router-link to="/courses/new"> Add New </router-link>
+            </div>
 
             <div class="hidden sm:flex">
               <a
