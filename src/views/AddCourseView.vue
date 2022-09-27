@@ -74,12 +74,11 @@
 </template>
 
 <script>
-import firebase from "../firebase";
+import CoursesControllers from "../controllers/course-ctrl";
 
 export default {
   data() {
     return {
-      db: firebase.collection("/courses"),
       course: {
         title: "",
         description: "",
@@ -90,15 +89,14 @@ export default {
     submitHandler() {
       const data = {
         // title: this.$refs.title.value,
+        // descripiton: this.$refs.description.value,
         title: this.course.title,
         descripiton: this.course.description,
-        // descripiton: this.$refs.description.value,
+        student: [""],
       };
       console.log(data);
-      this.db
-        .add(data)
+      CoursesControllers.create(data)
         .then(() => {
-          alert("Success!");
           this.course.title = "";
           this.course.description = "";
         })
