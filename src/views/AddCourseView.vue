@@ -16,6 +16,7 @@
           <input
             type="text"
             v-model="course.title"
+            placeholder="Enter Title"
             class="
               w-full
               p-4

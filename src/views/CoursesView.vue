@@ -1,8 +1,17 @@
 <template>
-  <h3>All Courses</h3>
-  <ul>
-    <li>Course 1</li>
-  </ul>
+  <div
+    class="
+      w-full
+      min-h-full
+      flex flex-col
+      p-4
+      items-center
+      jusitfy-center
+      text-white
+    "
+  >
+    <div>Course 1</div>
+  </div>
 </template>
 
 <script>
