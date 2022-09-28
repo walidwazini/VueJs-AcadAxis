@@ -11,12 +11,19 @@
     "
   >
     <div>Course 1</div>
+    
   </div>
 </template>
 
 <script>
+
+
 export default {
   name: "CoursesView",
+  data() {},
+  methods: {
+   
+  },
 };
 </script>
 

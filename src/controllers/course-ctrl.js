@@ -1,10 +1,11 @@
-import firebase from "firebase/compat/app";
+import firebase from "firebase/app";
 
 import firebaseApp from '../firebase'
 
 const db = firebaseApp.collection('/courses')
 
 class CoursesControllers {
+
   create(newCourse) {
     const courseDetails = {
       ...newCourse,
