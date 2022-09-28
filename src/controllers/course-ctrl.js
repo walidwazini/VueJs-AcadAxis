@@ -6,6 +6,10 @@ const db = firebaseApp.collection('/courses')
 
 class CoursesControllers {
 
+  getAll() {
+    return db.orderBy('createdAt', 'desc')
+  }
+
   create(newCourse) {
     const courseDetails = {
       ...newCourse,
