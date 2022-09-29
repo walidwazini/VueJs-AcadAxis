@@ -13,11 +13,16 @@
   >
     <div>Course 1</div>
     <div>
-      <ol>
+      <ul class="mt-10 flex flex-col gap-4">
         <li v-for="course in coursesList" :key="course.id">
-          {{ course.title }} asd
+          <!-- <p>{{ course.title }}</p> -->
+          <CourseItemVue
+            :title="course.title"
+            :desc="course.descripiton"
+            :id="course.id"
+          ></CourseItemVue>
         </li>
-      </ol>
+      </ul>
     </div>
   </div>
 </template>
@@ -25,10 +30,11 @@
 <script>
 import CoursesControllers from "../controllers/course-ctrl";
 import CourseItemVue from "@/components/CourseItem.vue";
+// import CourseItem from "../components/CourseItem.vue";
 
 export default {
   name: "CoursesView",
-  components: [CourseItemVue],
+  components: { CourseItemVue },
   data() {
     return {
       coursesList: [],
@@ -38,19 +44,17 @@ export default {
   methods: {
     loadCourses(items) {
       let _tutorials = [];
-
       items.forEach((item) => {
         let id = item.id;
         let data = item.data();
         _tutorials.push({
           id: id,
           title: data.title,
-          // description: data.description,
+          descripiton: data.descripiton,
         });
       });
-
       this.coursesList = _tutorials;
-      console.log(_tutorials);
+      console.log(this.coursesList);
     },
   },
   mounted() {
