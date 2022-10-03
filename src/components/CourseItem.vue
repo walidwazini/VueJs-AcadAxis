@@ -1,40 +1,47 @@
 <template>
-  <button
-    class="relative w-[270px] p-4 border border-gray-100 shadow-xl rounded-xl"
-    @click="test(description)"
+  <div
+    class="
+      relative
+      w-[270px]
+      h-auto
+      p-4
+      border border-gray-100
+      shadow-xl
+      rounded-xl
+    "
   >
-    <span
-      class="
-        absolute
-        right-4
-        top-4
-        rounded-full
-        px-3
-        py-1.5
-        bg-green-100
-        text-green-600
-        font-medium
-        text-xs
-      "
-    >
-      44
-    </span>
-
-    <div class="mt-4 text-gray-400 sm:pr-8">
-      <svg
-        class="w-8 h-8 sm:w-10 sm:h-10"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+    <div class="w-full h-auto flex justify-between">
+      <button
+        @click="test(id)"
+        class="
+          rounded-full
+          px-3
+          py-1.5
+          bg-green-500
+          hover:bg-green-300
+          text-green-600
+          font-medium
+          text-xs
+        "
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-        ></path>
-      </svg>
+        🖋️
+      </button>
+      <button
+        @click="test(id)"
+        class="
+          rounded-full
+          px-3
+          py-1.5
+          bg-red-700
+          hover:bg-red-500
+          font-medium
+          text-xs
+        "
+      >
+        🗑️
+      </button>
+    </div>
+    <div class="mt-1 flex flex-col gap-1 justify-center items-center p-1">
       <div class="flex flex-col">
         <h5 class="mt-4 text-xl font-bold text-white">
           {{ title }}
@@ -44,7 +51,7 @@
         </h6>
       </div>
     </div>
-  </button>
+  </div>
 </template>
 
 <script>
