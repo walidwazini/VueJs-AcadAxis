@@ -12,6 +12,10 @@
     "
   >
     <div>Course 1</div>
+    <button @click="isOpen = true" class="bg-slate-500 rounded-md py-1 px-4">
+      Modal Toggle
+    </button>
+    <ModalEdit :open="isOpen" @close="isOpen = !isOpen" />
     <div>
       <ul class="mt-10 flex flex-col gap-4">
         <li v-for="course in coursesList" :key="course.id">
@@ -28,18 +32,25 @@
 </template>
 
 <script>
+import { ref } from "vue";
+
 import CoursesControllers from "../controllers/course-ctrl";
 import CourseItemVue from "@/components/CourseItem.vue";
+import ModalEdit from "@/components/ModalEdit.vue";
 // import CourseItem from "../components/CourseItem.vue";
 
 export default {
   name: "CoursesView",
-  components: { CourseItemVue },
+  components: { CourseItemVue, ModalEdit },
   data() {
     return {
       coursesList: [],
       fetchCall: null,
     };
+  },
+  setup() {
+    const isOpen = ref(false);
+    return { isOpen };
   },
   methods: {
     loadCourses(items) {

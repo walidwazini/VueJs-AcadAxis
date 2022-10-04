@@ -12,7 +12,7 @@
   >
     <div class="w-full h-auto flex justify-between">
       <button
-        @click="test(id)"
+        @click="isOpen = true"
         class="
           rounded-full
           px-3
@@ -63,6 +63,7 @@ export default {
       console.log(id);
     },
   },
+  setup() {},
 };
 </script>
 

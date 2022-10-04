@@ -17,6 +17,10 @@ class CoursesControllers {
     }
     return db.add(courseDetails)
   }
+
+  update(id, details) {
+    return db.doc(id).update(details)
+  }
 }
 
 export default new CoursesControllers()
