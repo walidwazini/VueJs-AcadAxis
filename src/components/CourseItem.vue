@@ -12,7 +12,7 @@
   >
     <div class="w-full h-auto flex justify-between">
       <button
-        @click="isOpen = true"
+        @click="onOpenModal"
         class="
           rounded-full
           px-3
@@ -58,6 +58,7 @@
 export default {
   name: "course-item",
   props: ["title", "desc", "id"],
+  inject: ["isOpen", "onOpenModal"],
   methods: {
     test(id) {
       console.log(id);

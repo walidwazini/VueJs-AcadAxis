@@ -12,7 +12,7 @@
     "
   >
     <div>Course 1</div>
-    <button @click="isOpen = true" class="bg-slate-500 rounded-md py-1 px-4">
+    <button @click="openModal" class="bg-slate-500 rounded-md py-1 px-4">
       Modal Toggle
     </button>
     <ModalEdit :open="isOpen" @close="isOpen = !isOpen" />
@@ -42,17 +42,27 @@ import ModalEdit from "@/components/ModalEdit.vue";
 export default {
   name: "CoursesView",
   components: { CourseItemVue, ModalEdit },
+  provide() {
+    return {
+      isOpen: this.isOpen,
+      onOpenModal: this.openModal,
+    };
+  },
   data() {
     return {
       coursesList: [],
       fetchCall: null,
+      isOpen: ref(false),
     };
   },
-  setup() {
-    const isOpen = ref(false);
-    return { isOpen };
-  },
+  // setup() {
+  //   const isOpen = ref(false);
+  //   return { isOpen };
+  // },
   methods: {
+    openModal() {
+      this.isOpen = true;
+    },
     loadCourses(items) {
       let _tutorials = [];
       items.forEach((item) => {
